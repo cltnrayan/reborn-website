@@ -1,0 +1,270 @@
+l<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BREEZY AUTOHAR</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+  body {
+    background-color: #0a0a0a;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+    font-family: 'Inter', sans-serif;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem 4rem 1rem;
+  }
+  h1 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 2.25rem;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+  }
+  .subtitle {
+    font-weight: 400;
+    color: #cccccc;
+    margin-top: 0.25rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+  .topbar {
+    width: 100%;
+    max-width: 980px;
+    margin-bottom: 2rem;
+  }
+  .back-button {
+    background: #333333;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 0.375rem;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    border: 1px solid #555555;
+  }
+  .back-button:hover {
+    background-color: #555555;
+    color: #ffffff;
+  }
+  .cards-container {
+    max-width: 980px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+  }
+  .card {
+    background: #1a1a1a;
+    border-radius: 0.75rem;
+    padding: 1.5rem 1.75rem;
+    border: 1px solid #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 18rem;
+    transition: border-color 0.3s ease;
+    position: relative;
+  }
+  .card:hover {
+    border-color: #666666;
+  }
+  .card-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.25rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    user-select: none;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  .card-tag.premium {
+    background: linear-gradient(135deg, #ff8c00, #ffd700);
+  }
+  .card-tag.elite {
+    background: #ffd700;
+  }
+  .card h2 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 0.65rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    line-height: 1.4rem;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+  }
+  .feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.25rem;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+  }
+  .feature-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+  .feature-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .card-link {
+    font-weight: 600;
+    color: #ffffff;
+    user-select: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+    transition: color 0.25s ease;
+  }
+  .card-link:hover {
+    color: #dddddd;
+  }
+  .card-link svg {
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  .footer-text {
+    margin-top: 4rem;
+    font-size: 0.75rem;
+    color: #4b5563;
+    text-align: center;
+    user-select: none;
+  }
+  .logo-emoji {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+    user-select: none;
+  }
+  @media (max-width: 420px) {
+    body {
+      padding: 1rem 0.75rem 3rem 0.75rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+    }
+    .topbar {
+      margin-bottom: 1.5rem;
+    }
+    .card p {
+      font-size: 0.88rem;
+    }
+    .feature-list li {
+      font-size: 0.85rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <button class="back-button" onclick="animateAndNavigate(this, 'index.html')">← Back to Home</button>
+  </div>
+
+  <div class="logo-emoji" aria-label="Blue smiling face emoji with small sparkles">{🪦;}</div>
+  <h1>REBORN AUTOHAR</h1>
+  <p class="subtitle">Choose your preferred autohar solution</p>
+
+  <section class="card" role="listitem" aria-labelledby="immortal-title">
+      <span class="card-tag premium" aria-label="Premium tier">PREMIUM</span
+      <h2 id="immortal-title">IMMORTAL</h2>
+      <p>
+        Persistent autohar with unbreakable session management and infinite duration capabilities for continuous operation.
+      </p>
+      <ul class="feature-list" aria-label="Features of IMMORTAL">
+        <li>Mid-Session Recovery</li>
+        <li>Infinite Duration Support</li>
+        <li>Enhanced Security Protocols</li>
+        <li>Advanced Monitoring</li>
+      </ul>
+      <a href="#" class="card-link" aria-describedby="immortal-title" tabindex="0">
+        Access Immortal →
+      </a>
+  </section>
+
+    <div class="cards-container" role="list" aria-label="AutoHar solutions list">
+    <section class="card" role="listitem" aria-labelledby="axora-title">
+      <span class="card-tag elite" aria-label="Elite tier">ELITE</span>
+      <h2 id="axora-title">SOON...</h2>
+      <p>
+        Premium autohar solution with advanced targeting capabilities and industry-leading success rates for maximum effectiveness.
+      </p>
+      <ul class="feature-list" aria-label="Features of AXORA">
+        <li>Advanced Proxy Integration</li>
+        <li>High Success Rate Algorithm</li>
+        <li>Premium Feature Access</li>
+        <li>Priority Support</li>
+      </ul>
+      <a href="#" class="card-link" aria-describedby="axora-title" tabindex="0">
+        Soon... →
+      </a>
+    </section>
+      
+    <section class="card" role="listitem" aria-labelledby="snipper-title">
+      <span class="card-tag elite" aria-label="Elite tier">ELITE</span>
+      <h2 id="snipper-title">SOON...</h2>
+      <p>
+        Precision autohar with lightning-fast execution and stealth capabilities for optimal performance and reliability.
+      </p>
+      <ul class="feature-list" aria-label="Features of SNIPPER">
+        <li>Precision Targeting System</li>
+        <li>Optimized Performance Engine</li>
+        <li>Fast Proxy Network</li>
+        <li>Stealth Mode Operation</li>
+      </ul>
+      <a href="#" class="card-link" aria-describedby="snipper-title" tabindex="0">
+        Soon... →
+      </a>
+    </section>
+  </div>
+
+  <div class="footer-text" aria-label="Footer note">
+    All autohar tools are optimized for maximum performance and reliability
+  </div>
+
+  <style>
+  /* Fade-out animation */
+  .fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  </style>
+
+  <script>
+  function animateAndNavigate(el, url) {
+   // Add fade-out animation to the whole body
+   document.body.classList.add('fade-out');
+
+   // Wait for animation to finish (400ms), then navigate
+   setTimeout(() => {
+    window.location.href = url;
+   }, 400);
+ }
+  </script>
+</body>
+</html>
+
